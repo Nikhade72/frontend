@@ -44,14 +44,21 @@ const Todo = () => {
 
     const toggleTaskCompletion = async (taskId) => {
         try {
-            await axios.put(`http://localhost:3001/api/tasks/${taskId}`, {
-                completed: !tasks.find((task) => task._id === taskId).completed,
-            });
-            fetchTasks();
+          const taskToUpdate = tasks.find((task) => task._id === taskId);
+          const updatedTask = { ...taskToUpdate, completed: !taskToUpdate.completed };
+      
+          await axios.put(`http://localhost:3001/api/tasks/${taskId}`, updatedTask);
+          
+          setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+              task._id === taskId ? { ...task, completed: !task.completed } : task
+            )
+          );
         } catch (error) {
-            console.error('Error toggling task completion:', error);
+          console.error('Error toggling task completion:', error);
         }
-    };
+      };
+      
 
     const filteredTasks = tasks.filter((task) => {
         if (filter === 'all') return true;

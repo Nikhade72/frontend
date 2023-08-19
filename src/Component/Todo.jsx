@@ -1,57 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-
 const Todo = () => {
-    // const [tasks, setTasks] = useState([]);
-    // const [newTask, setNewTask] = useState("");
-    // const [completed, setCompleted] = useState(false);
-    // const [filter, setFilter] = useState('all')
-    // const [taskStatus, setTaskStatus] = useState('ongoing')
-
-
-
-    // const fetchTasks = async () => {
-    //     try {
-    //         const response = await axios.get('http://localhost:3001/api/tasks');
-    //         setTasks(response.data);
-    //     } catch (error) {
-    //         console.error("Error fetching tasks:", error);
-    //     }
-    // };
-
-    // const addTask = () => {
-    //     if (newTask.trim() !== '') {
-    //       setTasks([...tasks, { description: newTask, completed: taskStatus === 'completed' }]);
-    //       setNewTask('');
-    //     }
-    //   };
-
-    // const deleteTask = async (taskId) => {
-    //     try {
-    //         await axios.delete('http://localhost:3001/api/tasks');
-    //         fetchTasks();
-    //     } catch (error) {
-    //         console.error('Error deleting task:', error);
-    //     }
-    // };
-
-    // const toggleTaskCompletion = (index) => {
-    //     const updatedTasks = [...tasks];
-    //     updatedTasks[index].completed = !updatedTasks[index].completed;
-    //     setTasks(updatedTasks);
-    // }
-
-    // const filteredTasks = tasks.filter((task) => {
-    //     if (filter === 'all') return true;
-    //     if (filter === 'completed') return task.completed;
-    //     if (filter === 'incomplete') return !task.completed;
-    //     return true;
-    // })
-
-    // useEffect(() => {
-    //     fetchTasks();
-    // }, []);
+    
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState('');
     const [filter, setFilter] = useState('all');
